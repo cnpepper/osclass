@@ -1,0 +1,60 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classinfo_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classinfo_id" data-rule="required" data-source="ClassInfo/index" class="form-control selectpage" name="row[classinfo_id]" type="text" value="" data-order-by="id" data-field="classtitle">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classtitle')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classtitle" class="form-control" name="row[classtitle]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classremark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-classremark" class="form-control " rows="5" name="row[classremark]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classfile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-classfile" class="form-control" size="50" name="row[classfile]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-classfile" class="btn btn-danger faupload" data-input-id="c-classfile" data-multiple="false" data-preview-id="p-classfile"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-classfile" class="btn btn-primary fachoose" data-input-id="c-classfile" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-classfile"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-classfile"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classlength')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classlength" class="form-control" name="row[classlength]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Tryswitch')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-tryswitch" class="form-control" name="row[tryswitch]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classlearnnum')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classlearnnum" class="form-control" name="row[classlearnnum]" type="number">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

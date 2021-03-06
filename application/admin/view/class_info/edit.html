@@ -1,0 +1,84 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classtitle')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classtitle" class="form-control" name="row[classtitle]" type="text" value="{$row.classtitle|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Calssdesc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-calssdesc" class="form-control " rows="5" name="row[calssdesc]" cols="50">{$row.calssdesc|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classremark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-classremark" class="form-control " rows="5" name="row[classremark]" cols="50">{$row.classremark|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classtype')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-classtype" class="form-control selectpicker" name="row[classtype]">
+                {foreach name="classtypeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.classtype"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classimage')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-classimage" class="form-control" size="50" name="row[classimage]" type="text" value="{$row.classimage|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-classimage" class="btn btn-danger faupload" data-input-id="c-classimage" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-classimage"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-classimage" class="btn btn-primary fachoose" data-input-id="c-classimage" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-classimage"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-classimage"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classplaynum')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classplaynum" class="form-control" name="row[classplaynum]" type="number" value="{$row.classplaynum|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classsavenum')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classsavenum" class="form-control" name="row[classsavenum]" type="number" value="{$row.classsavenum|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classgroup_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classgroup_id" data-rule="required" data-source="classgroup/index" class="form-control selectpage" name="row[classgroup_id]" type="text" value="{$row.classgroup_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classlevel_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classlevel_id" data-rule="required" data-source="classlevel/index" class="form-control selectpage" name="row[classlevel_id]" type="text" value="{$row.classlevel_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classteacher_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-classteacher_id" data-rule="required" data-source="classteacher/index" class="form-control selectpage" name="row[classteacher_id]" type="text" value="{$row.classteacher_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

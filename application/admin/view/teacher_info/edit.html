@@ -1,0 +1,42 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Teachername')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-teachername" class="form-control" name="row[teachername]" type="text" value="{$row.teachername|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Teacherdesc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-teacherdesc" class="form-control " rows="5" name="row[teacherdesc]" cols="50">{$row.teacherdesc|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Teacheravatar')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-teacheravatar" class="form-control" size="50" name="row[teacheravatar]" type="text" value="{$row.teacheravatar|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-teacheravatar" class="btn btn-danger faupload" data-input-id="c-teacheravatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-teacheravatar"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-teacheravatar" class="btn btn-primary fachoose" data-input-id="c-teacheravatar" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-teacheravatar"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-teacheravatar"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Teacherremark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-teacherremark" class="form-control " rows="5" name="row[teacherremark]" cols="50">{$row.teacherremark|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
