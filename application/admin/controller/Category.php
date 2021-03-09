@@ -145,7 +145,6 @@ class Category extends Backend
         return $this->view->fetch();
     }
 
-
     /**
      * Selectpage搜索
      *

@@ -21,6 +21,7 @@ class Ajax extends Frontend
      */
     public function lang()
     {
+        return "";
         header('Content-Type: application/javascript');
         header("Cache-Control: public");
         header("Pragma: cache");
@@ -40,6 +41,7 @@ class Ajax extends Frontend
      */
     public function upload()
     {
+        return "";
         return action('api/common/upload');
     }
 

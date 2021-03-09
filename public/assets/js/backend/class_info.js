@@ -29,11 +29,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'classtitle', title: __('Classtitle'), operate: 'LIKE'},
                         {field: 'classtype', title: __('Classtype'), searchList: {"视频":__('视频'),"音频":__('音频')}, formatter: Table.api.formatter.normal},
                         {field: 'classimage', title: __('Classimage'), operate: false, events: Table.api.events.image, formatter: Table.api.formatter.image},
+                        {field: 'attr.category_name', title: __('Classgroup_id')},
+                        {field: 'attr.member_name', title: __('Classlevel_id')},
+                        {field: 'attr.teachername', title: __('Classteacher_id')},
                         {field: 'classplaynum', title: __('Classplaynum')},
                         {field: 'classsavenum', title: __('Classsavenum')},
-                        {field: 'classgroup_id', title: __('Classgroup_id')},
-                        {field: 'classlevel_id', title: __('Classlevel_id')},
-                        {field: 'classteacher_id', title: __('Classteacher_id')},
                         {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
@@ -111,6 +111,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
         },
         api: {
             bindevent: function () {
+                // todo 查看selectpage远程获取的数据，如果当前类型不存在了清掉下拉框默认值
                 Form.api.bindevent($("form[role=form]"));
             }
         }

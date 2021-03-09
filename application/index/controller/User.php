@@ -10,7 +10,6 @@ use app\common\model\Attachment;
 use think\Config;
 use think\Cookie;
 use think\Hook;
-use think\Session;
 use think\Validate;
 
 /**
@@ -24,6 +23,7 @@ class User extends Frontend
 
     public function _initialize()
     {
+        return "";
         parent::_initialize();
         $auth = $this->auth;
 
@@ -56,6 +56,7 @@ class User extends Frontend
      */
     public function index()
     {
+        return "";
         $this->view->assign('title', __('User center'));
         return $this->view->fetch();
     }
@@ -65,6 +66,7 @@ class User extends Frontend
      */
     public function register()
     {
+        return "";
         $url = $this->request->request('url', '', 'trim');
         if ($this->auth->id) {
             $this->success(__('You\'ve logged in, do not login again'), $url ? $url : url('user/index'));
@@ -77,26 +79,26 @@ class User extends Frontend
             $captcha = $this->request->post('captcha');
             $token = $this->request->post('__token__');
             $rule = [
-                'username'  => 'require|length:3,30',
-                'password'  => 'require|length:6,30',
-                'email'     => 'require|email',
-                'mobile'    => 'regex:/^1\d{10}$/',
+                'username' => 'require|length:3,30',
+                'password' => 'require|length:6,30',
+                'email' => 'require|email',
+                'mobile' => 'regex:/^1\d{10}$/',
                 '__token__' => 'require|token',
             ];
 
             $msg = [
                 'username.require' => 'Username can not be empty',
-                'username.length'  => 'Username must be 3 to 30 characters',
+                'username.length' => 'Username must be 3 to 30 characters',
                 'password.require' => 'Password can not be empty',
-                'password.length'  => 'Password must be 6 to 30 characters',
-                'email'            => 'Email is incorrect',
-                'mobile'           => 'Mobile is incorrect',
+                'password.length' => 'Password must be 6 to 30 characters',
+                'email' => 'Email is incorrect',
+                'mobile' => 'Mobile is incorrect',
             ];
             $data = [
-                'username'  => $username,
-                'password'  => $password,
-                'email'     => $email,
-                'mobile'    => $mobile,
+                'username' => $username,
+                'password' => $password,
+                'email' => $email,
+                'mobile' => $mobile,
                 '__token__' => $token,
             ];
             //验证码
@@ -144,6 +146,7 @@ class User extends Frontend
      */
     public function login()
     {
+        return "";
         $url = $this->request->request('url', '', 'trim');
         if ($this->auth->id) {
             $this->success(__('You\'ve logged in, do not login again'), $url ? $url : url('user/index'));
@@ -151,23 +154,23 @@ class User extends Frontend
         if ($this->request->isPost()) {
             $account = $this->request->post('account');
             $password = $this->request->post('password');
-            $keeplogin = (int)$this->request->post('keeplogin');
+            $keeplogin = (int) $this->request->post('keeplogin');
             $token = $this->request->post('__token__');
             $rule = [
-                'account'   => 'require|length:3,50',
-                'password'  => 'require|length:6,30',
+                'account' => 'require|length:3,50',
+                'password' => 'require|length:6,30',
                 '__token__' => 'require|token',
             ];
 
             $msg = [
-                'account.require'  => 'Account can not be empty',
-                'account.length'   => 'Account must be 3 to 50 characters',
+                'account.require' => 'Account can not be empty',
+                'account.length' => 'Account must be 3 to 50 characters',
                 'password.require' => 'Password can not be empty',
-                'password.length'  => 'Password must be 6 to 30 characters',
+                'password.length' => 'Password must be 6 to 30 characters',
             ];
             $data = [
-                'account'   => $account,
-                'password'  => $password,
+                'account' => $account,
+                'password' => $password,
                 '__token__' => $token,
             ];
             $validate = new Validate($rule, $msg);
@@ -198,6 +201,7 @@ class User extends Frontend
      */
     public function logout()
     {
+        return "";
         //退出本站
         $this->auth->logout();
         $this->success(__('Logout successful'), url('user/index'));
@@ -208,6 +212,7 @@ class User extends Frontend
      */
     public function profile()
     {
+        return "";
         $this->view->assign('title', __('Profile'));
         return $this->view->fetch();
     }
@@ -217,31 +222,32 @@ class User extends Frontend
      */
     public function changepwd()
     {
+        return "";
         if ($this->request->isPost()) {
             $oldpassword = $this->request->post("oldpassword");
             $newpassword = $this->request->post("newpassword");
             $renewpassword = $this->request->post("renewpassword");
             $token = $this->request->post('__token__');
             $rule = [
-                'oldpassword'   => 'require|length:6,30',
-                'newpassword'   => 'require|length:6,30',
+                'oldpassword' => 'require|length:6,30',
+                'newpassword' => 'require|length:6,30',
                 'renewpassword' => 'require|length:6,30|confirm:newpassword',
-                '__token__'     => 'token',
+                '__token__' => 'token',
             ];
 
             $msg = [
-                'renewpassword.confirm' => __('Password and confirm password don\'t match')
+                'renewpassword.confirm' => __('Password and confirm password don\'t match'),
             ];
             $data = [
-                'oldpassword'   => $oldpassword,
-                'newpassword'   => $newpassword,
+                'oldpassword' => $oldpassword,
+                'newpassword' => $newpassword,
                 'renewpassword' => $renewpassword,
-                '__token__'     => $token,
+                '__token__' => $token,
             ];
             $field = [
-                'oldpassword'   => __('Old password'),
-                'newpassword'   => __('New password'),
-                'renewpassword' => __('Renew password')
+                'oldpassword' => __('Old password'),
+                'newpassword' => __('New password'),
+                'renewpassword' => __('Renew password'),
             ];
             $validate = new Validate($rule, $msg, $field);
             $result = $validate->check($data);
@@ -263,13 +269,14 @@ class User extends Frontend
 
     public function attachment()
     {
+        return "";
         //设置过滤方法
         $this->request->filter(['strip_tags']);
         if ($this->request->isAjax()) {
             $mimetypeQuery = [];
             $where = [];
             $filter = $this->request->request('filter');
-            $filterArr = (array)json_decode($filter, true);
+            $filterArr = (array) json_decode($filter, true);
             if (isset($filterArr['mimetype']) && preg_match("/[]\,|\*]/", $filterArr['mimetype'])) {
                 $this->request->get(['filter' => json_encode(array_diff_key($filterArr, ['mimetype' => '']))]);
                 $mimetypeQuery = function ($query) use ($filterArr) {

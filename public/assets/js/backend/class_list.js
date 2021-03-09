@@ -26,7 +26,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     [
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
-                        {field: 'classinfo_id', title: __('Classinfo_id')},
+                        {field: 'attr.classtitle', title: __('Classinfo_id')},
                         {field: 'classtitle', title: __('Classtitle'), operate: 'LIKE'},
                         {field: 'classfile', title: __('Classfile'), operate: false},
                         {field: 'classlength', title: __('Classlength')},

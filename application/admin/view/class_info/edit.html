@@ -7,9 +7,9 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">{:__('Calssdesc')}:</label>
+        <label class="control-label col-xs-12 col-sm-2">{:__('Classdesc')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea id="c-calssdesc" class="form-control " rows="5" name="row[calssdesc]" cols="50">{$row.calssdesc|htmlentities}</textarea>
+            <textarea id="c-classdesc" class="form-control " rows="5" name="row[classdesc]" cols="50">{$row.classdesc|htmlentities}</textarea>
         </div>
     </div>
     <div class="form-group">
@@ -59,19 +59,19 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Classgroup_id')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-classgroup_id" data-rule="required" data-source="classgroup/index" class="form-control selectpage" name="row[classgroup_id]" type="text" value="{$row.classgroup_id|htmlentities}">
+            <input id="c-classgroup_id" data-rule="required" data-source="category/selectpage" class="form-control selectpage" name="row[classgroup_id]" type="text" value="{$row.classgroup_id|htmlentities}">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Classlevel_id')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-classlevel_id" data-rule="required" data-source="classlevel/index" class="form-control selectpage" name="row[classlevel_id]" type="text" value="{$row.classlevel_id|htmlentities}">
+            <input id="c-classlevel_id" data-rule="required" data-source="MemberInfo/selectpage" class="form-control selectpage" name="row[classlevel_id]" type="text" data-order-by="id" data-field="member_name" data-multiple="true" value="{$row.classlevel_id|htmlentities}">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Classteacher_id')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-classteacher_id" data-rule="required" data-source="classteacher/index" class="form-control selectpage" name="row[classteacher_id]" type="text" value="{$row.classteacher_id|htmlentities}">
+            <input id="c-classteacher_id" data-rule="required" data-source="TeacherInfo/selectpage" class="form-control selectpage" name="row[classteacher_id]" type="text" data-order-by="id" data-field="teachername" value="{$row.classteacher_id|htmlentities}">
         </div>
     </div>
     <div class="form-group layer-footer">

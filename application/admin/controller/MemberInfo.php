@@ -11,7 +11,7 @@ use app\common\controller\Backend;
  */
 class MemberInfo extends Backend
 {
-    
+
     /**
      * MemberInfo模型对象
      * @var \app\admin\model\MemberInfo
@@ -35,6 +35,14 @@ class MemberInfo extends Backend
      * 因此在当前控制器中可不用编写增删改查的代码,除非需要自己控制这部分逻辑
      * 需要将application/admin/library/traits/Backend.php中对应的方法复制到当前控制器,然后进行修改
      */
-    
 
+    /**
+     * Selectpage搜索
+     *
+     * @internal
+     */
+    public function selectpage()
+    {
+        return parent::selectpage();
+    }
 }
