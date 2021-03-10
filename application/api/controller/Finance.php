@@ -4,11 +4,10 @@ namespace app\api\controller;
 
 use app\common\controller\Api;
 use \think\Db;
-
 /**
  * 示例接口
  */
-class MiniPay extends Api
+class Demo extends Api
 {
 
     //如果$noNeedLogin为空表示所有接口都需要登录才能请求
@@ -35,14 +34,20 @@ class MiniPay extends Api
      * @ApiReturnParams   (name="msg", type="string", required=true, sample="返回成功")
      * @ApiReturnParams   (name="data", type="object", sample="{'user_id':'int','user_name':'string','profile':{'email':'string','age':'integer'}}", description="扩展数据返回")
      * @ApiReturn   ({
-    'code':'1',
-    'msg':'返回成功'
-    })
+         'code':'1',
+         'msg':'返回成功'
+        })
      */
-    public function pay()
+
+    // 用户支付记录查询
+    public function getPayListByUserID()
     {
-        \addons\epay\library\Service::submitOrder();
-        $res = Db::query("SELECT * FROM `fa_category` WHERE TYPE = 'class'");
-        $this->success('返回成功', print_r($res, true));
+
     }
+
+    // 用户分成记录查询
+    public function getShareListByUserID(){
+
+    }
+
 }

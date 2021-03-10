@@ -3,11 +3,12 @@
 namespace app\api\controller;
 
 use app\common\controller\Api;
+use app\api\model\CategoryModel;
 use \think\Db;
 /**
- * 示例接口
+ * 自定义接口
  */
-class Demo extends Api
+class Category extends Api
 {
 
     //如果$noNeedLogin为空表示所有接口都需要登录才能请求
@@ -18,6 +19,9 @@ class Demo extends Api
     protected $noNeedLogin = ['*'];
     // 无需鉴权的接口,*表示全部
     protected $noNeedRight = ['*'];
+
+    private $page_no = 1;
+    private $page_size = 10;
 
     /**
      * 测试方法
@@ -38,17 +42,29 @@ class Demo extends Api
          'msg':'返回成功'
         })
      */
-
-    // 查询老师列表
-    public function getTeacherList()
+    public function getCategoryList()
     {
-        $res = Db::query("SELECT * FROM `fa_category` WHERE TYPE = 'class'");
-        $this->success('返回成功', print_r($res,true));
+        $param = $this->request->param();
+        $this->page_no = isset($param['page_no'])?$param['page_no']:1;
+
+        $obj = new CategoryModel();
+
+        // 定义查询条件
+        $case = [
+            'id'
+        ];
+
+        // 生成查询条件
+        $where = make_where($param,$case);
+
+        $total = $obj->count();
+        $res = $obj->where($where)->page($this->page_no,$this->page_size)->select();
+        
+        // 转换成数组
+        $res = collection($res)->toArray();
+        
+        // 返回前处理
+        
+        $this->success('ok', ['total'=>$total,'info'=>$res]);
     }
-
-    // 查询老师详情
-    public function getTeacherInfo(){
-
-    }
-
 }

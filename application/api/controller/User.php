@@ -323,4 +323,9 @@ class User extends Api
             $this->error($this->auth->getError());
         }
     }
+
+    // 个人中心查询
+    public function getUserInfo(){
+
+    }
 }

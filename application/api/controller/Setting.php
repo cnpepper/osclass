@@ -37,6 +37,7 @@ class Setting extends Api
         })
      */
 
+     // 系统配置查询
      public function Query(){
         $res = Db::query("SELECT id,`name`,title,`type`,`value`,rule,extend,setting FROM `fa_config` WHERE `group` = 'home'");
         if($res){

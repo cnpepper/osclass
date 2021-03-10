@@ -55,4 +55,9 @@ class Trade extends Api
             return [ 'code'=>0, 'msg'=>'创建订单失败', 'data'=>[] ];
         }
     }
+    
+    // 订单查询
+    public function getTrade(){
+
+    }
 }
